@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Simulador de Parcelamento</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Simulador de Parcelamento</h1>
+
+    <p class="subtitulo">
+        Simule o valor aproximado das parcelas do seu cartão de crédito.
+    </p>
+
+    <label for="valor">
+        Valor da compra
+    </label>
+
+    <input
+        type="text"
+        id="valor"
+        placeholder="R$ 0,00"
+    >
+
+    <label for="parcelamento">
+        Parcelamento
+    </label>
+
+    <select id="parcelamento">
+
+        <option selected disabled>
+            Digite o valor acima
+        </option>
+
+    </select>
+
+    <div class="cartoes">
+
+        <label>Cartão</label>
+
+        <label class="radio">
+
+            <input
+                type="radio"
+                name="cartao"
+                value="visa"
+                checked>
+
+            Visa / Mastercard
+
+        </label>
+
+        <label class="radio">
+
+            <input
+                type="radio"
+                name="cartao"
+                value="elo">
+
+            Elo
+
+        </label>
+
+        <label class="radio">
+
+            <input
+                type="radio"
+                name="cartao"
+                value="amex">
+
+            American Express
+
+        </label>
+
+        <label class="radio">
+
+            <input
+                type="radio"
+                name="cartao"
+                value="hipercard">
+
+            Hipercard
+
+        </label>
+
+    </div>
+
+</div>
+
+<script src="tabelas.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

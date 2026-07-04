@@ -1,0 +1,96 @@
+body{
+
+    margin:0;
+
+    padding:25px;
+
+    background:#f2f4f8;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.container{
+
+    max-width:420px;
+
+    margin:auto;
+
+    background:white;
+
+    border-radius:14px;
+
+    padding:25px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
+
+}
+
+h1{
+
+    text-align:center;
+
+    margin-bottom:8px;
+
+}
+
+.subtitulo{
+
+    text-align:center;
+
+    color:#666;
+
+    font-size:14px;
+
+    margin-bottom:30px;
+
+}
+
+label{
+
+    display:block;
+
+    margin-top:20px;
+
+    margin-bottom:8px;
+
+    font-weight:bold;
+
+}
+
+input[type=text],
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    font-size:18px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    box-sizing:border-box;
+
+}
+
+.cartoes{
+
+    margin-top:25px;
+
+}
+
+.radio{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:12px;
+
+    font-weight:normal;
+
+}
