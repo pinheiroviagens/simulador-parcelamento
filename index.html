@@ -14,92 +14,96 @@
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1>Simulador de Parcelamento</h1>
+        <h1>Simulador de Parcelamento</h1>
 
-    <p class="subtitulo">
-        Simule o valor aproximado das parcelas do seu cartão de crédito.
-    </p>
+        <p class="subtitulo">
+            Informe o valor e escolha o parcelamento.
+        </p>
 
-    <label for="valor">
-        Valor da compra
-    </label>
-
-    <input
-        type="text"
-        id="valor"
-        placeholder="R$ 0,00"
-    >
-
-    <label for="parcelamento">
-        Parcelamento
-    </label>
-
-    <select id="parcelamento">
-
-        <option selected disabled>
-            Digite o valor acima
-        </option>
-
-    </select>
-
-    <div class="cartoes">
-
-        <label>Cartão</label>
-
-        <label class="radio">
-
-            <input
-                type="radio"
-                name="cartao"
-                value="visa"
-                checked>
-
-            Visa / Mastercard
-
+        <label for="valor">
+            Valor da compra
         </label>
 
-        <label class="radio">
+        <input
+            type="text"
+            id="valor"
+            placeholder="R$ 0,00"
+        >
 
-            <input
-                type="radio"
-                name="cartao"
-                value="elo">
-
-            Elo
-
+        <label for="parcelamento">
+            Parcelamento
         </label>
 
-        <label class="radio">
+        <select id="parcelamento">
 
-            <input
-                type="radio"
-                name="cartao"
-                value="amex">
+            <option selected disabled>
+                Digite o valor acima
+            </option>
 
-            American Express
+        </select>
 
-        </label>
+        <div class="cartoes">
 
-        <label class="radio">
+            <label>Cartão</label>
 
-            <input
-                type="radio"
-                name="cartao"
-                value="hipercard">
+            <div class="cartoes-grid">
 
-            Hipercard
+                <label class="radio">
 
-        </label>
+                    <input
+                        type="radio"
+                        name="cartao"
+                        value="visa"
+                        checked>
+
+                    Visa / Master
+
+                </label>
+
+                <label class="radio">
+
+                    <input
+                        type="radio"
+                        name="cartao"
+                        value="elo">
+
+                    Elo
+
+                </label>
+
+                <label class="radio">
+
+                    <input
+                        type="radio"
+                        name="cartao"
+                        value="amex">
+
+                    Amex
+
+                </label>
+
+                <label class="radio">
+
+                    <input
+                        type="radio"
+                        name="cartao"
+                        value="hipercard">
+
+                    Hipercard
+
+                </label>
+
+            </div>
+
+        </div>
 
     </div>
 
-</div>
+    <script src="assets/js/tabelas.js"></script>
 
-<script src="assets/js/tabelas.js"></script>
-
-<script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 
 </body>
 
