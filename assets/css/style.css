@@ -112,7 +112,7 @@ select:focus{
 
 .cartoes{
 
-    display: none; /* Esta linha esconde os cartões da tela do cliente */
+    /* display: none;  Esta linha esconde os cartões da tela do cliente */
 
     margin-top:18px;
 
