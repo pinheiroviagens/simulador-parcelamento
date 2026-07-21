@@ -37,40 +37,37 @@ campoValor.addEventListener("input", () => {
 
 });
 
-function atualizarParcelas(){
+function atualizarParcelas() {
+    let numeros = campoValor.value.replace(/\D/g, "");
 
-    let numeros = campoValor.value.replace(/\D/g,"");
-
-    if(numeros==""){
+    if (numeros === "") {
         limparParcelas();
         return;
     }
 
-    let valor = Number(numeros)/100;
-
-    selectParcelamento.innerHTML="";
+    let valor = Number(numeros) / 100;
+    selectParcelamento.innerHTML = "";
 
     const tabela = tabelas[cartaoSelecionado];
 
-    for(let i=1;i<=12;i++){
+    for (let i = 1; i <= 12; i++) {
+        const option = document.createElement("option");
 
-        const option=document.createElement("option");
+        // Taxa efetiva decimal
+        let taxaEfetiva = tabela[i]; 
 
-        let fator=tabela[i];
+        // Cálculo com repasse da taxa sobre o valor total cobrado:
+        let valorTotalComTaxa = valor / (1 - taxaEfetiva);
+        let parcela = valorTotalComTaxa / i;
 
-        let parcela=valor*fator;
-
-        option.value=i;
-
-        option.text=`${i}x de ${parcela.toLocaleString("pt-BR",{
-            style:"currency",
-            currency:"BRL"
-        })}`;
+        option.value = i;
+        option.text = `${i}x de ${parcela.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        })} (Total: ${valorTotalComTaxa.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })})`;
 
         selectParcelamento.appendChild(option);
-
     }
-
 }
 
 function limparParcelas(){
