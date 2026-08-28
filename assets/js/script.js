@@ -40,19 +40,23 @@ function atualizarParcelas() {
         return;
     }
 
+    // 1. Pega o valor digitado (ex: 100.00)
     let valorBase = Number(numeros) / 100;
     
-    // Busca a taxa de dentro da configuração da tabela (padrão 0 se não existir)
-    const taxaAdicional = tabelas.config?.taxaAdicional || 0;
-    let valorComAdicional = valorBase * (1 + taxaAdicional);
+    // 2. Busca a taxa configurável (0.01) e soma 1% no valor inicial
+    const porcentagemExtra = tabelas.config?.taxaAdicional || 0;
+    let valorComAdicional = valorBase * (1 + porcentagemExtra); // Se for 1%, multiplica por 1.01 (Resultado: 101.00)
 
     selectParcelamento.innerHTML = "";
     const tabela = tabelas[cartaoSelecionado];
 
     for (let i = 1; i <= 12; i++) {
         const option = document.createElement("option");
+        
+        // 3. Aplica a taxa original da tabela de cartões (ex: 0.0348)
         let taxaEfetiva = tabela[i]; 
 
+        // 4. Faz o repasse da máquina em cima do valor que já ganhou o 1%
         let valorTotalComTaxa = valorComAdicional / (1 - taxaEfetiva);
         let parcela = valorTotalComTaxa / i;
 
