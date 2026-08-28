@@ -14,8 +14,6 @@ radiosCartao.forEach(radio => {
 
 // Sempre que digitar um valor
 campoValor.addEventListener("input", () => {
-
-    // Mantém somente números
     let numeros = campoValor.value.replace(/\D/g, "");
 
     if (numeros === "") {
@@ -24,17 +22,14 @@ campoValor.addEventListener("input", () => {
         return;
     }
 
-    // Converte para reais
     let valor = Number(numeros) / 100;
 
-    // Formata em moeda brasileira
     campoValor.value = valor.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL"
     });
 
     atualizarParcelas();
-
 });
 
 function atualizarParcelas() {
@@ -45,19 +40,20 @@ function atualizarParcelas() {
         return;
     }
 
-    let valor = Number(numeros) / 100;
-    selectParcelamento.innerHTML = "";
+    let valorBase = Number(numeros) / 100;
+    
+    // Busca a taxa de dentro da configuração da tabela (padrão 0 se não existir)
+    const taxaAdicional = tabelas.config?.taxaAdicional || 0;
+    let valorComAdicional = valorBase * (1 + taxaAdicional);
 
+    selectParcelamento.innerHTML = "";
     const tabela = tabelas[cartaoSelecionado];
 
     for (let i = 1; i <= 12; i++) {
         const option = document.createElement("option");
-
-        // Taxa efetiva decimal
         let taxaEfetiva = tabela[i]; 
 
-        // Cálculo com repasse da taxa sobre o valor total cobrado:
-        let valorTotalComTaxa = valor / (1 - taxaEfetiva);
+        let valorTotalComTaxa = valorComAdicional / (1 - taxaEfetiva);
         let parcela = valorTotalComTaxa / i;
 
         option.value = i;
@@ -71,17 +67,10 @@ function atualizarParcelas() {
 }
 
 function limparParcelas(){
-
-    selectParcelamento.innerHTML="";
-
-    const option=document.createElement("option");
-
-    option.text="Digite o valor acima";
-
-    option.disabled=true;
-
-    option.selected=true;
-
+    selectParcelamento.innerHTML = "";
+    const option = document.createElement("option");
+    option.text = "Digite o valor acima";
+    option.disabled = true;
+    option.selected = true;
     selectParcelamento.appendChild(option);
-
 }
